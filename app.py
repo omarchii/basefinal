@@ -5,6 +5,7 @@ from routes.cases import cases_bp
 from routes.documents import documents_bp
 from routes.activities import activities_bp
 from routes.reports import reports_bp
+from routes.users import users_bp
 
 def create_app():
     app = Flask(__name__)
@@ -25,6 +26,7 @@ def create_app():
     app.register_blueprint(documents_bp, url_prefix='/api/documents')
     app.register_blueprint(activities_bp, url_prefix='/api/activities')
     app.register_blueprint(reports_bp, url_prefix='/api/reports')
+    app.register_blueprint(users_bp, url_prefix='/api/users')
 
     return app
 
