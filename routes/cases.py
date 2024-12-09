@@ -24,7 +24,7 @@ def create_case():
     )
     db.session.add(new_case)
     db.session.commit()
-    return jsonify({"message": "Case created"}), 201
+    return jsonify({"message": "Caso Creado"}), 201
 
 @cases_bp.route('/<int:case_id>', methods=['PUT'])
 def update_case(case_id):
@@ -36,7 +36,7 @@ def update_case(case_id):
     case.case_type = data.get('case_type', case.case_type)
     case.start_date = data.get('start_date', case.start_date)
     db.session.commit()
-    return jsonify({"message": "Case updated successfully"})
+    return jsonify({"message": "Caso modificado correctamente"})
 
 @cases_bp.route('/<int:case_id>', methods=['DELETE'])
 def delete_case(case_id):
@@ -45,7 +45,7 @@ def delete_case(case_id):
         return jsonify({"error": "Case not found"}), 404
     db.session.delete(case)
     db.session.commit()
-    return jsonify({"message": "Case deleted successfully"})
+    return jsonify({"message": "Caso eliminado"})
 
 @cases_bp.route('/export', methods=['GET'])
 def export_cases():

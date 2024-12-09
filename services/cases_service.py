@@ -9,7 +9,7 @@ def create_case(data):
     )
     db.session.add(new_case)
     db.session.commit()
-    return {"message": "Case created successfully"}
+    return {"message": "El caso fue creado correctamente"}
 
 def list_cases():
     cases = Case.query.all()

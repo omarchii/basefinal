@@ -61,12 +61,3 @@ def unlock_resource(case_id, user_id):
         return {"error": "No lock found for this user"}, 404
     return {"message": "Resource unlocked successfully"}, 200
 
-# Manejo de Transacciones
-def execute_transaction(operation):
-    try:
-        operation()
-        db.session.commit()
-        return {"message": "Transaction committed successfully"}, 200
-    except SQLAlchemyError as e:
-        db.session.rollback()
-        return {"error": str(e)}, 500
